@@ -1,6 +1,6 @@
 rockspec_format = "3.0"
-package = "kong-plugin-tees"
-version = "0.0.1"
+package = "kong-tees-plugin"
+version = "0.0.1-1"
 source = {
    url = "git+https://github.com/rayalas1_uhg/kong_tees_poc.git",
    tag = "v0.0.1",
@@ -29,7 +29,7 @@ test = {
 build = {
    type = "builtin",
    modules = {
-      ["kong.plugins.opa.handler"] = "src/kong/plugins/opa/handler.lua",
-      ["kong.plugins.opa.schema"] = "src/kong/plugins/opa/schema.lua",
+      ["kong.plugins.tees.handler"] = "src/kong/plugins/tees/handler.lua",
+      ["kong.plugins.tees.schema"] = "src/kong/plugins/tees/schema.lua",
    },
 }
