@@ -32,3 +32,6 @@ function TEESHandler:access(conf)
     -- deserialize the response into a Lua table
     return assert(cjson_safe.decode(res.body))
 end
+
+-- return handler
+return TEESHandler
