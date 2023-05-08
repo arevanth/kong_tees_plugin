@@ -2,7 +2,7 @@ local typedefs = require "kong.db.schema.typedefs"
 
 
 return {
-    name = "kong-tees",
+    name = "tees",
     fields = {
         {
             -- this plugin will only be applied to Services or Routes
