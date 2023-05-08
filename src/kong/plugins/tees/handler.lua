@@ -15,12 +15,8 @@ end
 function TEESHandler:access(conf)
     local json_body = assert(cjson_safe.encode({ input = input }))
 
-    local res, err = http.new():request_uri("http://example.com/helloworld", {
-        method = "POST",
-        body = json_body,
-        headers = {
-            ["Content-Type"] = "application/json",
-        },
+    local res, err = http.new():request_uri(conf.server.protocol .. "://" .. conf.server.host .. ":" .. conf.server.port .. "/hcp/.well-known/openid-configuration", {
+        method = "GET",
         keepalive_timeout = conf.server.connection.timeout,
         keepalive_pool = conf.server.connection.pool
     })

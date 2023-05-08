@@ -17,40 +17,42 @@ return {
                 type = "record",
                 fields = {
                     {
-                        protocol = typedefs.protocol {
-                            default = "http"
-                        },
-                    },
-                    {
-                        host = typedefs.host {
-                            default = "localhost"
-                        },
-                    },
-                    {
-                        port = {
-                            type = "number",
-                            default = 8081,
-                            between = { 0, 65534 },
-                        },
-                    },
-                    {
-                        connection = {
+                        server = {
                             type = "record",
                             fields = {
-                                {
-                                    timeout = {
-                                        type = "number",
-                                        default = 60,
+                                protocol = typedefs.protocol {
+                                    default = "http"
+                                },
+
+                                host = typedefs.host {
+                                    default = "localhost"
+                                },
+
+                                port = {
+                                    type = "number",
+                                    default = 8080,
+                                    between = { 0, 65534 },
+                                },
+
+                                connection = {
+                                    type = "record",
+                                    fields = {
+                                        {
+                                            timeout = {
+                                                type = "number",
+                                                default = 60,
+                                            },
+                                        },
+                                        {
+                                            pool = {
+                                                type = "number",
+                                                default = 10,
+                                            },
+                                        },
                                     },
                                 },
-                                {
-                                    pool = {
-                                        type = "number",
-                                        default = 10,
-                                    },
-                                },
-                            },
-                        },
+                            }
+                        }
                     },
                 },
             },
